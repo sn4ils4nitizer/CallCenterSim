@@ -4,7 +4,7 @@
 using namespace std;
 
 
-void main()
+int main()
 {
 	ACD dispatcher;
 	srand(time(0));
@@ -35,4 +35,6 @@ void main()
 	}
 
 	system("pause");
+
+	return 0;
 }
