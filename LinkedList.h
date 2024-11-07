@@ -10,7 +10,7 @@ private:
 public:
 	LinkedList()
 	{
-		first = new Node("null");
+		first = new Node(nullptr);
 	}
 
 	~LinkedList()
@@ -29,20 +29,20 @@ public:
 
 		while (temp != nullptr)
 		{
-			std::cout << temp->data << " ";
+			temp->data.display();
 			temp = temp->next;
 		}
 		std::cout << std::endl;
 	}
 
-	void addFront(std::string& value)
+	void addFront(Call& value)
 	{
 		Node* newNode = new Node(value);
 		newNode->next = first->next;
 		first->next = newNode;
 	}
 
-	void addBack(std::string value)
+	void addBack(Call& value)
 	{
 		// find the end of the list
 		Node* temp = first;
@@ -77,13 +77,13 @@ public:
 		delete temp;
 	}
 
-	Node* findValue(std::string& value)
+	Node* findValue(Call& value)
 	{
 		Node* temp = first->next;
 
 		while (temp != nullptr)
 		{
-			if (temp->data == value)
+			if (temp->data.id == value.id)
 				return temp;
 			temp = temp->next;
 		}
@@ -91,12 +91,12 @@ public:
 		return nullptr;
 	}
 
-	void removeValue(std::string& value)
+	void removeValue(Call& value)
 	{
 		Node* temp = first->next;
 		Node* trailer = first;
 
-		while (temp != nullptr && temp->data != value)
+		while (temp != nullptr && temp->data.id != value.id)
 		{
 			temp = temp->next;
 			trailer = trailer->next;
@@ -110,14 +110,14 @@ public:
 		}
 	}
 
-	int countOccurrences(std::string& value)
+	int countOccurrences(Call& value)
 	{
 		int counter = 0;
 
 		Node* temp = first->next;
 		while (temp != nullptr)
 		{
-			if (temp->data == value)
+			if (temp->data.id == value.id)
 				counter++;
 			temp = temp->next;
 		}
@@ -125,12 +125,12 @@ public:
 		return counter;
 	}
 
-	std::string getFront() {
+	Call getFront() {
 		if (!isEmpty()) {
 			return first->next->data;
 		}
 		else {
-			return "";
+			return Call();
 		}
 	}
 };

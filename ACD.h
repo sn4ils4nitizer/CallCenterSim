@@ -1,4 +1,5 @@
 #include "Call.h"
+#include "DynamicQ.h"
 // TODO:  Include a header for a queue.  You may use
 // the one we made in class (#include "Queue.h")  
 // or the one built in to C++ (#include <queue>).
@@ -16,4 +17,5 @@ private:
 	static int id;
 	string getTime();
 	string random(int min, int max);
+	DynamicQ callQueue;
 };

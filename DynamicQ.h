@@ -6,7 +6,7 @@ class DynamicQ : QInterface {
 private:
 	LinkedList list;
 public:
-	void push(std::string& item) {
+	void push(Call& item) {
 		list.addFront(item);
 	}
 
@@ -14,7 +14,7 @@ public:
 		list.removeFront();
 	}
 
-	std::string peek() {
+	Call peek() {
 		return list.getFront();
 	}
 

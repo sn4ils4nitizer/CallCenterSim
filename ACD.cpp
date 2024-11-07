@@ -41,6 +41,7 @@ void ACD::newCall()
 	call.display();
 
 	// TODO:  Enqueue the call.
+	callQueue.push(call);
 }
 
 void ACD::handleCall()

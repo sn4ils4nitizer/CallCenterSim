@@ -1,17 +1,19 @@
 #pragma once
 #include <string>
+#include "Call.h"
 
 class Node
 {
 public:
-	std::string data;
+	Call data;
 	Node* next;
 
-	Node(std::string value)
-	{
-		data = value;
-		next = nullptr;
-	}
+	Node(Call& value) : data(value), next(nullptr){}
+	Node(Node* nextNode) : next(nextNode), data(Call()) {}
+	//{
+		// data = value;
+		// next = nullptr;
+	//}
 
 	~Node()
 	{
