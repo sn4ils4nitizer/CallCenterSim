@@ -19,8 +19,10 @@ int main()
 		switch (randomEvent)
 		{
 		case 0: // New call comes in.
+			dispatcher.newCall();
 			break;
 		case 1: // A call has been handled.
+			dispatcher.handleCall();
 			break;
 		default: cout << "No new activity." << endl;
 		}
@@ -32,6 +34,7 @@ int main()
 	while (dispatcher.isCallWaiting())
 	{
 		// handle the next call
+		dispatcher.handleCall();
 	}
 
 	system("pause");

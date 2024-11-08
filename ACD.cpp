@@ -47,10 +47,12 @@ void ACD::newCall()
 void ACD::handleCall()
 {
 	// TODO: if a call is waiting in the queue
-	if (true)
+	if (!callQueue.isEmpty())
 	{
 		cout << "<<<<<<<< Call has been handled: ";
 		// TODO: Dequeue the call and display it.
+		callQueue.peek().display();
+		callQueue.pop();
 	}
 	else
 		cout << "<<<<<<<< No calls to handle." << endl;
@@ -59,11 +61,16 @@ void ACD::handleCall()
 void ACD::display()
 {
 	// TODO:  if calls are waiting in the queue
-	if (true)
+	if (!callQueue.isEmpty())
 	{
 		cout << "Next caller in line: ";
 		// TODO:  Display the next call to be handled.
+		callQueue.peek().display();
 	}
 	else
 		cout << "<<<<<<<< No calls to handle." << endl;
+}
+
+bool ACD::isCallWaiting() {
+    return !callQueue.isEmpty();
 }
